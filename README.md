@@ -1,5 +1,12 @@
 Me-App
 ========
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JohanLe/me-app/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/JohanLe/me-app/?branch=master)
+
+[![Build Status](https://scrutinizer-ci.com/g/JohanLe/me-app/badges/build.png?b=master)](https://scrutinizer-ci.com/g/JohanLe/me-app/build-status/master)
+
+[![Build Status](https://travis-ci.org/JohanLe/me-app.svg?branch=master)](https://travis-ci.org/JohanLe/me-app)
+
+
 
 #### Starta appen
 I en node miljö:
