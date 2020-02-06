@@ -1,0 +1,7 @@
+os:
+  - osx
+language: node_js
+node_js:
+  - "node"
+install:
+  - npm install --ignore-scripts
