@@ -12,7 +12,7 @@ var browser = new webdriver.Builder().
     withCapabilities(webdriver.Capabilities.firefox())
     .build();
 
-browser.get("http://localhost:5000/");
+browser.get("http://localhost:5000/ ");
 
 
 browser.getTitle().then(function( title ) {
