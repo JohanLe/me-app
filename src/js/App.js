@@ -12,6 +12,7 @@ import Report from './components/Report.js';
 import Register from './components/Register.js';
 import Login from './components/Login.js';
 import ReportEdit from './components/ReportEdit.js';
+import Chat from './components/Chat.js';
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                     <Route path="/reports/week/:kmom" component={Report}/>
                     <Route path="/register" component={Register}/>
                     <Route path="/login" component={Login}/>
+                    <Route path="/chat" component={Chat}/>
                     <Route path="/reports/edit/:kmom" component={ReportEdit}/>
 
                 </div>

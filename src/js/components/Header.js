@@ -9,6 +9,7 @@ class HeaderMain extends React.Component {
                 <Link url="/reports/week/1" text="Reports" class="header_link"/>
                 <Link url="/register" text="Register" class="header_link"/>
                 <Link url="/login" text="Login" class="header_link"/>
+                <Link url="/chat" text="Chat" class="header_link"/>
             </div>
         </header>
     }

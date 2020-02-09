@@ -24,14 +24,14 @@ class ReportEdit extends React.Component {
             return res.json();
         }).then((res) => {
             if(res.data){
-                 var parsed = JSON.parse(res.data.text);
+                var parsed = JSON.parse(res.data.text);
                 var data = parsed.map((item, index) => {
                     item['id'] = index;
                     return item;
                 });
                
                 this.setState({reportData: data});
-                this.state.editFields = this.createReportQuestion(data);
+                this.setState({editFields: this.createReportQuestion(data)})
                 
             }
      
@@ -55,7 +55,7 @@ class ReportEdit extends React.Component {
 
         }).then((res) => {
             console.log(res);
-            if(res.data.status == 'ok'){
+            if(res.data.status === 'ok'){
                 var url = '/reports/week/' + this.state.kmom;
                 window.location.replace(url);
             }
@@ -104,7 +104,7 @@ class ReportEdit extends React.Component {
         var state = this.state.reportData;
         var newState = [];
         state.forEach((item)=>{
-            if(item.id == id){
+            if(item.id === id){
                 item[nam] = val;
             }
             newState.push(item);
