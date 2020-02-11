@@ -66,7 +66,7 @@ class Login extends React.Component {
                     </label>
 
 
-                    <input name="register" type="Submit" defaultValue="Register" className="button_submit"/>
+                    <input name="register" type="Submit" defaultValue="Login" className="button_submit"/>
 
                 </form>
             </div>
