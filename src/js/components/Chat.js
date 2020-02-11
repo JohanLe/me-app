@@ -17,21 +17,29 @@ class Chat extends React.Component {
         this.handleChangeUsername = this.handleChangeUsername.bind(this);
         this.handleChangeText = this.handleChangeText.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleDataRecived = this.handleDataRecived.bind(this);
+        this.handleMessageRecived = this.handleMessageRecived.bind(this);
+        this.handleOldMessagesRecived = this.handleOldMessagesRecived.bind(this);
     }
     componentDidMount(){
         socket.on('connect', function() {
             console.info("Connected");
         });
 
-        socket.on('chat message', this.handleDataRecived);
+        socket.on('chat message', this.handleMessageRecived);
+
+        socket.on('join', this.handleUserJoined);
+
+        socket.on("all messages", this.handleOldMessagesRecived);
 
         socket.on('disconnect', function() {
             this.setState({username: ""});
         });
     }
 
-    handleDataRecived(message) {
+    handleOldMessagesRecived(messages){
+        this.setState({messages:messages});
+    }
+    handleMessageRecived(message) {
         var messages = this.state.messages;
         messages.push(message);
         this.setState({messages:messages});
@@ -39,13 +47,20 @@ class Chat extends React.Component {
 
     handleJoinChat(event) {
         event.preventDefault();
+        var date = new Date();
 
-        socket.emit('chat message', 
+        socket.emit('join',
         {
-            username: this.state.username + " joined the chat.",
-            text: "",
-            time: ""
-        });
+        username: "",
+        text: this.state.username + " joined the chat",
+        time: date.getHours() + " : " + date.getMinutes() + " : " + date.getSeconds(),
+        id: socket.id
+     });
+
+    }
+
+    getAllMessages(){
+
     }
 
     handleChangeUsername(event) {
@@ -63,7 +78,7 @@ class Chat extends React.Component {
         {
             username: this.state.username,
             text: this.state.text,
-            time: " | " + date.getHours() + " : " + date.getMinutes()
+            time: date.getHours() + " : " + date.getMinutes() + " : " + date.getSeconds()
         });
     }
 
@@ -87,8 +102,9 @@ class Chat extends React.Component {
                     </form>
                     <div className="all-messages">
                     {this.state.messages.map((msg, index) => (
+                       
                         <div key={index} className="message">
-                            <p className="all-messages-username"> {msg.username} {msg.time} </p>
+                            <p className="all-messages-username"> {msg.username} | {msg.time} </p>
                             <p className="all-messages-text">  {msg.text}</p>
                         </div>
 
