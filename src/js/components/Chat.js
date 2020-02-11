@@ -98,7 +98,7 @@ class Chat extends React.Component {
                     <form onSubmit={this.handleJoinChat} className="message-form">
                         <label>Username</label>
                         <input type="text" className="message-form-username" onChange={this.handleChangeUsername}/>
-                        <input type="submit" value="Join chat" />
+                        <input type="submit" value="Join chat" className="join-chat-btn"/>
                     </form>
                     <div className="all-messages">
                     {this.state.messages.map((msg, index) => (

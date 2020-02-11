@@ -6,6 +6,10 @@ Me-App
 
 [![Build Status](https://travis-ci.org/JohanLe/me-app.svg?branch=master)](https://travis-ci.org/JohanLe/me-app)
 
+#### Test
+
+node test/test.js
+
 
 
 #### Starta appen
