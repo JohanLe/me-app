@@ -32,7 +32,7 @@ class Report extends React.Component {
                 this.setState({report: jsonData});
             }
             else{
-                var infoText = JSON.parse('[{"question":"Press edit to add new report"}]');
+                var infoText = JSON.parse('[{"question":"No report found, press \\"Create report\\" "}]');
                 this.setState({report: infoText});
             
             }
@@ -67,9 +67,9 @@ class Report extends React.Component {
         return (
             <article className="article">
                 <div className="article_header">
-                    <h2>REPORTS</h2>
+                    <h2>Reports</h2>
                     <HeaderReports/>
-                    <Link url={editUrl} text="Edit report" className="report_week_link"/>
+                    <Link url={editUrl} text="Create report" className="report_week_link"/>
                 </div>
 
                 <div className="article_main_content">

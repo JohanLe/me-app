@@ -11,6 +11,13 @@ class Login extends React.Component {
         }
     }
 
+    componentDidMount() {
+        if(localStorage.getItem('user')){
+            localStorage.setItem('user', "");
+            window.location.replace("/");
+        }
+    }
+
     handleOnChange = (event) => {
         let name = event.target.name;
         let value = event.target.value;
@@ -35,7 +42,10 @@ class Login extends React.Component {
             console.log(res);
             console.log("Save token");
             localStorage.setItem('jwt', res.data.token);
+            localStorage.setItem('user', this.state.email);
             console.log(localStorage.getItem('jwt'));
+           
+            window.location.replace("/");
         })
 
 

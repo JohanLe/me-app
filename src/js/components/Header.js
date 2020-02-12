@@ -2,14 +2,26 @@ import React from 'react';
 import Link from "./Link.js";
 
 class HeaderMain extends React.Component {
+
+    login(){
+        if(localStorage.getItem('user') == "" || localStorage.getItem('user') == null){
+            return <Link url="/login" text="Login" class="header_link"/>
+        }
+        return <Link url="/login" text="Logout" class="header_link"/>  
+    }
+
     render() {
         return <header className="App-header">
             <div className="link_container">
                 <Link exact url="/" text="Home" class="header_link"/>
                 <Link url="/reports/week/1" text="Reports" class="header_link"/>
                 <Link url="/register" text="Register" class="header_link"/>
-                <Link url="/login" text="Login" class="header_link"/>
                 <Link url="/chat" text="Chat" class="header_link"/>
+                {this.login()}
+                {localStorage.getItem('user')}
+
+                
+                
             </div>
         </header>
     }
@@ -26,6 +38,7 @@ class HeaderReports extends React.Component {
             <Link url="/reports/week/6" text="Week6" className="report_week_link"/>
             <Link url="/reports/week/7" text="Week7" className="report_week_link"/>
 
+            
         </div>
     }
 }

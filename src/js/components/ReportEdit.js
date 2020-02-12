@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import ReportQuestion from './ReportQuestion.js';
 
 class ReportEdit extends React.Component {
@@ -60,7 +61,8 @@ class ReportEdit extends React.Component {
                 window.location.replace(url);
             }
         })
-
+        var url = '/reports/week/' + this.state.kmom;
+        window.location.replace(url);
     };
 
     createReportQuestion = (data) => {
@@ -103,13 +105,16 @@ class ReportEdit extends React.Component {
         let id = event.target.id;
         var state = this.state.reportData;
         var newState = [];
+
         state.forEach((item)=>{
-            if(item.id === id){
+
+            if(item.id == id){
                 item[nam] = val;
             }
             newState.push(item);
 
         });
+
         this.setState({reportData: newState});
     };
 

@@ -95,9 +95,8 @@ class Register extends React.Component {
                 birthdate: this.state.birthdate
             })
         }).then(()=>{
-            console.log("WHAHSH");
-            console.log("APP ");
-            console.log("Success");
+            var url = '/login';
+            window.location.replace(url);
         }).catch((e)=>{
             console.log(e);
             console.log("error");
